@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'movie_list' %}">Movies</a></li>
+        </ul>
+    </nav>
+    <h1>{{ movie.title }}</h1>
+    <p>{{ movie.overview }}</p>
+    <p>Rating: {{ movie.vote_average }}</p>
+    <video controls>
+        <source src="{{ movie.trailer_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
